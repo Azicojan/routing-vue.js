@@ -7,9 +7,12 @@
   <div class="gallery">
     <h1>Gallery</h1>
     <div class="slider">
-      <div class="slide" v-for="(image, index) in images" :key="index">
-        <img :src="image" alt="slide image">
-      </div>
+      <router-link v-for="(image, index) in images" :key="index" :to="{ name: 'ImageDetail', params: { id: index, image: image }}">
+      
+        <div class="slide">
+           <img :src="image" alt="slide image">
+        </div>
+      </router-link>
       <button class="prev" @click="prevSlide">&#10094;</button>
       <button class="next" @click="nextSlide">&#10095;</button>
     </div>
